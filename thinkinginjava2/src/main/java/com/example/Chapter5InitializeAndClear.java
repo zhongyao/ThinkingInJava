@@ -63,6 +63,16 @@ public class Chapter5InitializeAndClear {
         Flower flower = new Flower();
         flower.create();
 
+        createElement("哈哈");
+
+    }
+
+    private static void createElement(String s, String h) {
+        System.out.println("s:" + s + "h:" + h);
+    }
+
+    private static void createElement(String s) {
+        createElement(s, "");
     }
 }
 
@@ -74,7 +84,7 @@ class Flower {
     }
 
     Flower(String seed) {
-        this("哈哈哈",34);
+        this("哈哈哈", 34);
         System.out.println("Flower Constructor:seed");
     }
 
