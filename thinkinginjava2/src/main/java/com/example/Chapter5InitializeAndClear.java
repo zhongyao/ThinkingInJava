@@ -42,7 +42,81 @@ public class Chapter5InitializeAndClear {
          * 默认构造器（无参构造器）：
          * 如果某类中没有该构造器，则编译器会帮你自动创建一个默认构造器；
          * 但是如果已经定义了一个构造器（无论是否有参数），编译器就不会帮你自动创建默认构造器
-          */
+         */
+
+        /**
+         * this:
+         * 由于increment通过this关键字返回了当前对象的引用，所以很容易在一条语句里对同一个对象进行多次操作。
+         * this关键字对于将当前对象传递给其他方法也很有用。
+         */
+        Leaf leaf = new Leaf();
+        leaf.increment().increment().increment().print();
+
+        Person person = new Person();
+        Apple apple = new Apple();
+        person.eat(apple);
+
+        /**
+         * 在构造器中调用构造器：
+         * 必须将构造器置于最起始处
+         */
+        Flower flower = new Flower();
+        flower.create();
+
+    }
+}
+
+class Flower {
+
+    Flower() {
+        this("哈哈");
+        System.out.println("Flower Constructor:none");
+    }
+
+    Flower(String seed) {
+        this("哈哈哈",34);
+        System.out.println("Flower Constructor:seed");
+    }
+
+    Flower(String seed, int quantity) {
+        System.out.println("Flower Constructor:seed + quantity");
+    }
+
+    void create() {
+        System.out.println("grow flower");
+    }
+}
+
+class Person {
+    public void eat(Apple apple) {
+        Apple peeled = apple.getPeeled();
+        System.out.println("yao");
+
+    }
+}
+
+class Apple {
+    Apple getPeeled() {
+        return Peeler.peel(this);
+    }
+}
+
+class Peeler {
+    static Apple peel(Apple apple) {
+        return apple;
+    }
+}
+
+class Leaf {
+    int i = 0;
+
+    Leaf increment() {
+        i++;
+        return this;
+    }
+
+    void print() {
+        System.out.println(i);
     }
 }
 
