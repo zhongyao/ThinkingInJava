@@ -65,6 +65,7 @@ public class Chapter5InitializeAndClear {
 
         createElement("哈哈");
 
+
     }
 
     private static void createElement(String s, String h) {
