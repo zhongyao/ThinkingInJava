@@ -65,7 +65,19 @@ public class Chapter5InitializeAndClear {
 
         createElement("哈哈");
 
+        /***
+         * 构造器初始化:
+         * i首先被置为0,然后变成7
+         */
+        Counter counter = new Counter(6);
 
+        /**
+         * 初始化顺序：
+         * 在类的内部，变量定义的先后顺序决定了初始化的顺序，
+         * 即使变量定义散布于方法定义之间，它们仍旧会在任何方法被调用之前得到初始化
+         */
+        House house = new House();
+        house.function();
     }
 
     private static void createElement(String s, String h) {
@@ -74,6 +86,37 @@ public class Chapter5InitializeAndClear {
 
     private static void createElement(String s) {
         createElement(s, "");
+    }
+}
+
+class House {
+    public House() {
+        System.out.println("house constructor");
+        window3 = new Window(33);
+    }
+
+    Window window = new Window(1);
+    Window window2 = new Window(2);
+
+    void function(){
+        System.out.println("function");
+    }
+
+    Window window3 = new Window(3);
+
+}
+
+class Window {
+    public Window(int marker) {
+        System.out.println("window+" + marker);
+    }
+}
+
+class Counter {
+    int i;
+
+    public Counter(int i) {
+        this.i = i;
     }
 }
 
