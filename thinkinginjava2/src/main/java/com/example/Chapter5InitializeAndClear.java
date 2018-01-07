@@ -1,5 +1,8 @@
 package com.example;
 
+import java.util.Arrays;
+import java.util.Random;
+
 import static java.lang.System.out;
 
 /**
@@ -91,6 +94,22 @@ public class Chapter5InitializeAndClear {
 
         //会调用Cups的构造方法
         //new Cups();
+
+        /**
+         * 数组初始化
+         */
+        Random random = new Random(47);
+        int[] a = new int[random.nextInt(20)];
+        out.println("length of a =" + a.length);
+        out.println(Arrays.toString(a));
+
+        Random random1 = new Random(47);
+        Integer[] a1 = new Integer[random1.nextInt(20)];
+        for (int i = 0; i < a1.length; i++) {
+            a1[i] = random1.nextInt(500);
+        }
+        out.println("length of a1 =" + a1.length);
+        out.println(Arrays.toString(a1));
 
     }
 
