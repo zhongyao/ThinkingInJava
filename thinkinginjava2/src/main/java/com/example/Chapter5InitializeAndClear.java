@@ -1,5 +1,7 @@
 package com.example;
 
+import static java.lang.System.out;
+
 /**
  * Created by zhongyao on 2018/1/1.
  * 初始化与清理
@@ -78,10 +80,22 @@ public class Chapter5InitializeAndClear {
          */
         House house = new House();
         house.function();
+
+        /**
+         * 显示的静态初始化
+         */
+
+        out.println("inside main()");
+        //不会调用Cups的构造方法
+        Cups.cup1.f(1);
+
+        //会调用Cups的构造方法
+        //new Cups();
+
     }
 
     private static void createElement(String s, String h) {
-        System.out.println("s:" + s + "h:" + h);
+        out.println("s:" + s + "h:" + h);
     }
 
     private static void createElement(String s) {
@@ -89,17 +103,41 @@ public class Chapter5InitializeAndClear {
     }
 }
 
+class Cup {
+    public Cup(int maker) {
+        out.println("Cup(" + maker + ")");
+    }
+
+    void f(int maker) {
+        out.println("f(" + maker + ")");
+    }
+}
+
+class Cups {
+    static Cup cup1;
+    static Cup cup2;
+
+    static {
+        cup1 = new Cup(1);
+        cup2 = new Cup(2);
+    }
+
+    Cups() {
+        out.println("Cups()");
+    }
+}
+
 class House {
     public House() {
-        System.out.println("house constructor");
+        out.println("house constructor");
         window3 = new Window(33);
     }
 
     Window window = new Window(1);
     Window window2 = new Window(2);
 
-    void function(){
-        System.out.println("function");
+    void function() {
+        out.println("function");
     }
 
     Window window3 = new Window(3);
@@ -108,7 +146,7 @@ class House {
 
 class Window {
     public Window(int marker) {
-        System.out.println("window+" + marker);
+        out.println("window+" + marker);
     }
 }
 
@@ -124,27 +162,27 @@ class Flower {
 
     Flower() {
         this("哈哈");
-        System.out.println("Flower Constructor:none");
+        out.println("Flower Constructor:none");
     }
 
     Flower(String seed) {
         this("哈哈哈", 34);
-        System.out.println("Flower Constructor:seed");
+        out.println("Flower Constructor:seed");
     }
 
     Flower(String seed, int quantity) {
-        System.out.println("Flower Constructor:seed + quantity");
+        out.println("Flower Constructor:seed + quantity");
     }
 
     void create() {
-        System.out.println("grow flower");
+        out.println("grow flower");
     }
 }
 
 class Person {
     public void eat(Apple apple) {
         Apple peeled = apple.getPeeled();
-        System.out.println("yao");
+        out.println("yao");
 
     }
 }
@@ -170,39 +208,39 @@ class Leaf {
     }
 
     void print() {
-        System.out.println(i);
+        out.println(i);
     }
 }
 
 class Tree {
     Tree() {
-        System.out.println("Tree");
+        out.println("Tree");
     }
 
     Tree(int height) {
-        System.out.println("Tree:" + height);
+        out.println("Tree:" + height);
     }
 
     public void info() {
-        System.out.println("a small tree");
+        out.println("a small tree");
     }
 
     public void info(int height) {
-        System.out.println("a big tree:" + height);
+        out.println("a big tree:" + height);
     }
 
     public void control(float x) {
-        System.out.println("control:" + x);
+        out.println("control:" + x);
     }
 
     public void control(int x) {
-        System.out.println("control:" + x);
+        out.println("control:" + x);
     }
 
 }
 
 class Rock {
     Rock(int i) {
-        System.out.print("Rock " + i);
+        out.print("Rock " + i);
     }
 }
