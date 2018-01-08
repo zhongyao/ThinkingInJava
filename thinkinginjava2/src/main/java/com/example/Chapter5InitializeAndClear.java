@@ -123,6 +123,22 @@ public class Chapter5InitializeAndClear {
         f(2, "two", "three");
         f(0);
 
+        /**
+         * 枚举
+         */
+        for (Spiciness spiciness : Spiciness.values()) {
+            out.println(spiciness + " ordinal " + spiciness.ordinal());
+        }
+
+        Burrito plain = new Burrito(Spiciness.HOT);
+        plain.describe();
+
+        Burrito greenChile = new Burrito(Spiciness.MEDIUM);
+        greenChile.describe();
+
+        Burrito jalapeno = new Burrito(Spiciness.NOT);
+        jalapeno.describe();
+
     }
 
     private static void f(int i, String... strings) {
@@ -146,6 +162,40 @@ public class Chapter5InitializeAndClear {
     private static void createElement(String s) {
         createElement(s, "");
     }
+}
+
+class Burrito {
+    Spiciness degree;
+
+    public Burrito(Spiciness degree) {
+        this.degree = degree;
+    }
+
+    public void describe() {
+        out.println("This burrito is ");
+        switch (degree) {
+            case NOT:
+                out.println("not spicy at all");
+                break;
+            case MILD:
+            case MEDIUM:
+                out.println("a little hot");
+                break;
+            case HOT:
+            case FLAMING:
+            default:
+                out.println("maybe too hot");
+                break;
+        }
+    }
+}
+
+enum Spiciness {
+    NOT,
+    MILD,
+    MEDIUM,
+    HOT,
+    FLAMING
 }
 
 class A {}
