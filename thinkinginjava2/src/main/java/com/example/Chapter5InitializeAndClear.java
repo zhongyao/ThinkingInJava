@@ -111,6 +111,32 @@ public class Chapter5InitializeAndClear {
         out.println("length of a1 =" + a1.length);
         out.println(Arrays.toString(a1));
 
+        /**
+         * 可变参数列表
+         */
+        printMyArray(new Object[] {new Integer(39), new Float(34.3), new Double(33.5)});
+        printMyArray(new Object[] {"one", "two", "three"});
+        printMyArray(new Object[] {new A(), new A(), new A()});
+
+        //将0个参数传递给可变参数列表是可行的，当具有可选的尾随参数时，这一特性会比较有用
+        f(1, "one");
+        f(2, "two", "three");
+        f(0);
+
+    }
+
+    private static void f(int i, String... strings) {
+        out.print(i);
+        for (String s : strings) {
+            out.print(s);
+        }
+        out.println();
+    }
+
+    private static void printMyArray(Object... objects) {
+        for (Object object : objects) {
+            out.println(object);
+        }
     }
 
     private static void createElement(String s, String h) {
@@ -121,6 +147,8 @@ public class Chapter5InitializeAndClear {
         createElement(s, "");
     }
 }
+
+class A {}
 
 class Cup {
     public Cup(int maker) {
