@@ -82,13 +82,35 @@ public class Operator {
         //10100   20
         System.out.println(a ^ b);
 
+        //8
+        int aa = 1 << 3;
+        System.out.println(aa);
+        //4
+        int bb = 1 << 2;
+        System.out.println(bb);
+        //12
+        int cc = aa | bb;
+        System.out.println(cc);
+        //8
+        //cc &= ~bb;
+        cc = cc & (~bb);
+        System.out.println(~bb);
+        System.out.println("cc:" + cc);
+
+        System.out.println(~1);
+
+        //System.out.println("bb:" + bb);
+        //System.out.println("~bb:" + ~bb);
+
         /**
+         * 可查阅经典文章：http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html
+         *
          * 原码：如果机器字长为n，那么一个数的原码就是用一个n位的二进制数，其中最高位为符号位：正数为0，负数为1。剩下的n-1位表示概数的绝对值
-         * X=+101011 , [X]原= 00101011    X=-101011 , [X]原= 10101011
+         * X=+0101011 , [X]原= 00101011    X=-0101011 , [X]原= 10101011
          * 反码：因为反码就是在原码的基础上，符号位不变其他位按位取反(就是0变1，1变0)就可以了
          * X=-101011 , [X]原= 10101011 ，[X]反=11010100
          * 补码：在反码的基础上按照正常的加法运算加1
-         * X=-101011 , [X]原= 10101011 ，[X]反=11010100，[X]补=11010101
+         * X=-0101011 , [X]原= 10101011 ，[X]反=11010100，[X]补=11010101
          * X=-1111111   原码= 11111111 反码= 10000000 补码 = 10000001
          */
 
