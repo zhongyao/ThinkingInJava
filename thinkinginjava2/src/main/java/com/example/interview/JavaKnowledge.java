@@ -63,6 +63,23 @@ public class JavaKnowledge {
         builder.append("ghi");
         out(builder.toString());
 
+        /**
+         * 六、HashMap、HashTable、ConcurrentHashMap、SynchronisedMap的区别：
+         * HashMap是非线程安全的
+         * HashTable、ConcurrentHashMap、SynchronisedMap是线程安全的
+         *
+         * HashTable中是使用synchronised来保证线程安全的
+         * ConcurrentHashMap是Java并发包中提供的一个线程安全且高效的HashMap实现，采用了非常精妙的"分段锁"策略，ConcurrentHashMap的主干是个Segment数组。
+         *ConcurrentHashMap性能是明显优于Hashtable和SynchronizedMap的,ConcurrentHashMap花费的时间比前两个的一半还少
+         *
+         */
+
+        /**
+         * 七、volatile关键字的含义：
+         * 1、保证了不同线程对这个变量操作的可见性，即一个线程修改了变量的值，这个新值对其他线程来说是可见的
+         * 2、禁止进行指令重排序
+         */
+
     }
 
     private static void out(String string) {
