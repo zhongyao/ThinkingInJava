@@ -7,6 +7,12 @@ import com.example.arithmetic.linkedlist.Node;
  * 合并两个有序链表
  */
 public class MyList {
+    /**
+     * 递归法
+     * @param head1
+     * @param head2
+     * @return
+     */
     public static Node mergeTwoLinkedList(Node head1, Node head2) {
         if (head1 == null && head2 == null) {
             return null;

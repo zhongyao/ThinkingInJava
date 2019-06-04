@@ -28,7 +28,29 @@ public class LinkedListAlgorithm {
          * 反转
          * 4 5 3 2
          */
+        //遍历反转法
         testLinkedListReverse();
+        //递归反转法
+        doRecursionReverse();
+    }
+
+    private static void doRecursionReverse() {
+        Node head = new Node(2);
+        Node node1 = new Node(3);
+        Node node2 = new Node(5);
+        Node node3 = new Node(4);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+
+        //打印反转前的链表
+        printLinkedList(head);
+
+        Node reverseHead = MyListReverse.doRecursionReverse(head);
+        //打印反转后的链表
+        printLinkedList(reverseHead);
+
     }
 
     private static void testLinkedListReverse() {

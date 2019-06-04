@@ -42,15 +42,25 @@ public class MyListReverse {
     /**
      * 递归反转法：
      * 从后往前反转各个节点的指针域指向
+     * (在反转当前节点之前先反转后续节点)
      *
      * @param head
      * @return
      */
     public static Node doRecursionReverse(Node head) {
-        if (head == null) {
-            return null;
+        //head看做是前一节点，head.next 看作是当前节点，reHead是反转后新链表的头结点
+        if (head == null || head.next == null) {
+            //若为空链表或者当前节点在尾节点，直接返回
+            return head;
         }
 
-        return null;
+        //先反转后续节点head.next
+        Node reHead = doRecursionReverse(head.next);
+        //将当前节点的指针域指向前一节点(注：head.next看作是当前节点)
+        head.next.next = head;
+        //将前一节点的指针域置空(注：head看作是前一节点)
+        head.next = null;
+
+        return reHead;
     }
 }
