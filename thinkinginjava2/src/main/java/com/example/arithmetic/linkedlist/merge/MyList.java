@@ -1,7 +1,10 @@
 package com.example.arithmetic.linkedlist.merge;
 
+import com.example.arithmetic.linkedlist.Node;
+
 /**
  * Created by zhongyao on 2019-06-03.
+ * 合并两个有序链表
  */
 public class MyList {
     public static Node mergeTwoLinkedList(Node head1, Node head2) {

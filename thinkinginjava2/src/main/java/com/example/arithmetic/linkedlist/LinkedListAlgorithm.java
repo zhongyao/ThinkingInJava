@@ -3,7 +3,7 @@ package com.example.arithmetic.linkedlist;
 import java.util.ArrayList;
 
 import com.example.arithmetic.linkedlist.merge.MyList;
-import com.example.arithmetic.linkedlist.merge.Node;
+import com.example.arithmetic.linkedlist.reverse.MyListReverse;
 
 /**
  * Created by zhongyao on 2019-06-03.
@@ -18,8 +18,43 @@ public class LinkedListAlgorithm {
          * 1 3 6 7
          * 2 4 5 9
          * 合并成一个有序链表
+         * 1 2 3 4 5 6 7 9
          */
         testLinkedListMerge();
+
+        /**
+         * 单链表
+         * 2 3 5 4
+         * 反转
+         * 4 5 3 2
+         */
+        testLinkedListReverse();
+    }
+
+    private static void testLinkedListReverse() {
+        Node head = new Node(2);
+        Node node1 = new Node(3);
+        Node node2 = new Node(5);
+        Node node3 = new Node(4);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+
+        //打印反转前的链表
+        printLinkedList(head);
+
+        Node reverseHead = MyListReverse.doReverse(head);
+        //打印反转后的链表
+        printLinkedList(reverseHead);
+    }
+
+    private static void printLinkedList(Node node) {
+        while (node != null) {
+            System.out.print(node.data + " ");
+            node = node.next;
+        }
+        System.out.println();
     }
 
     private static void testLinkedListMerge() {
@@ -47,7 +82,6 @@ public class LinkedListAlgorithm {
     }
 
     private static void printMergedHeadNode(Node node) {
-
         if (node == null) {
             System.out.println("链表为null");
         }
@@ -59,7 +93,8 @@ public class LinkedListAlgorithm {
         }
 
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i) + ",");
+            System.out.print(list.get(i) + " ");
         }
+        System.out.println();
     }
 }

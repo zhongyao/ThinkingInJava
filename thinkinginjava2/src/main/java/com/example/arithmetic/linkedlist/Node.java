@@ -1,4 +1,4 @@
-package com.example.arithmetic.linkedlist.merge;
+package com.example.arithmetic.linkedlist;
 
 /**
  * Created by zhongyao on 2019-06-03.
