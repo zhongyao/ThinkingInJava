@@ -2,6 +2,7 @@ package com.example.arithmetic.linkedlist;
 
 import java.util.ArrayList;
 
+import com.example.arithmetic.linkedlist.delete.MyListDelete;
 import com.example.arithmetic.linkedlist.merge.MyList;
 import com.example.arithmetic.linkedlist.reverse.MyListReverse;
 
@@ -13,6 +14,15 @@ import com.example.arithmetic.linkedlist.reverse.MyListReverse;
  */
 public class LinkedListAlgorithm {
     public static void main(String[] args) {
+
+        /**
+         * 删除链表中某个值的节点
+         * 1 2 6 3 4 5 6
+         * 删除value值为6的所有节点:
+         * 1 2 3 4 5
+         */
+        testDelete();
+
         /**
          * 两个有序链表
          * 1 3 6 7
@@ -35,6 +45,27 @@ public class LinkedListAlgorithm {
         //testLinkedListReverse();
         //递归反转法
         //doRecursionReverse();
+    }
+
+    private static void testDelete() {
+        Node head = new Node(1);
+        Node node1 = new Node(2);
+        Node node2 = new Node(6);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+
+        Node deletedHead = MyListDelete.doDelete(head, 6);
+        printLinkedList(deletedHead);
+
     }
 
     private static void testMerge() {
