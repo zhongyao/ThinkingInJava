@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.example.arithmetic.linkedlist.delete.MyListDelete;
 import com.example.arithmetic.linkedlist.merge.MyList;
-import com.example.arithmetic.linkedlist.reverse.MyListReverse;
+import com.example.arithmetic.linkedlist.reverse.MyListRemove;
 
 /**
  * Created by zhongyao on 2019-06-03.
@@ -21,7 +21,8 @@ public class LinkedListAlgorithm {
          * 删除value值为6的所有节点:
          * 1 2 3 4 5
          */
-        testDelete();
+        //testRemove();
+        testRemoveWithStack();
 
         /**
          * 两个有序链表
@@ -31,7 +32,7 @@ public class LinkedListAlgorithm {
          * 1 2 3 4 5 6 7 9
          */
         //遍历合并
-        testMerge();
+        //testMerge();
         //递归合并
         //testRecursionMerge();
 
@@ -47,7 +48,7 @@ public class LinkedListAlgorithm {
         //doRecursionReverse();
     }
 
-    private static void testDelete() {
+    private static void testRemoveWithStack() {
         Node head = new Node(1);
         Node node1 = new Node(2);
         Node node2 = new Node(6);
@@ -63,9 +64,28 @@ public class LinkedListAlgorithm {
         node4.next = node5;
         node5.next = node6;
 
-        Node deletedHead = MyListDelete.doDelete(head, 6);
+        Node deletedHead = MyListDelete.doRemoveWithStack(head, 6);
         printLinkedList(deletedHead);
+    }
 
+    private static void testRemove() {
+        Node head = new Node(1);
+        Node node1 = new Node(2);
+        Node node2 = new Node(6);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+
+        Node deletedHead = MyListDelete.doRemove(head, 6);
+        printLinkedList(deletedHead);
     }
 
     private static void testMerge() {
@@ -105,7 +125,7 @@ public class LinkedListAlgorithm {
         //打印反转前的链表
         printLinkedList(head);
 
-        Node reverseHead = MyListReverse.doRecursionReverse(head);
+        Node reverseHead = MyListRemove.doRecursionReverse(head);
         //打印反转后的链表
         printLinkedList(reverseHead);
 
@@ -124,7 +144,7 @@ public class LinkedListAlgorithm {
         //打印反转前的链表
         printLinkedList(head);
 
-        Node reverseHead = MyListReverse.doReverse(head);
+        Node reverseHead = MyListRemove.doReverse(head);
         //打印反转后的链表
         printLinkedList(reverseHead);
     }

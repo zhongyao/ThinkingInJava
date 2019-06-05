@@ -7,7 +7,7 @@ import com.example.arithmetic.linkedlist.Node;
  * 单链表反转
  * 思路：
  */
-public class MyListReverse {
+public class MyListRemove {
 
     /**
      * 遍历反转法：

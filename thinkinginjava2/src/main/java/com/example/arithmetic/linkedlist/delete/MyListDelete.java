@@ -1,5 +1,7 @@
 package com.example.arithmetic.linkedlist.delete;
 
+import java.util.Stack;
+
 import com.example.arithmetic.linkedlist.Node;
 
 /**
@@ -7,7 +9,14 @@ import com.example.arithmetic.linkedlist.Node;
  */
 public class MyListDelete {
 
-    public static Node doDelete(Node head, int value) {
+    /**
+     * 删除链表中所有值为value的节点
+     *
+     * @param head
+     * @param value
+     * @return
+     */
+    public static Node doRemove(Node head, int value) {
         //从链表头开始，找到一个值不等于value的节点，作为新的节点。
         while (head != null) {
             if (head.data != value) {
@@ -29,7 +38,33 @@ public class MyListDelete {
             }
             cur = cur.next;
         }
+        return head;
+    }
 
+    /**
+     * 借助于栈--删除链表中所有值为value的节点
+     * 思路：
+     * 首先将所有节点值不等于value的节点顺序入栈，然后出栈连接即可。
+     *
+     * @param head
+     * @param value
+     * @return
+     */
+    public static Node doRemoveWithStack(Node head, int value) {
+        Stack<Node> stack = new Stack<>();
+
+        while (head != null) {
+            if (head.data != value) {
+                stack.push(head);
+            }
+            head = head.next;
+        }
+
+        //将栈底的节点作为新的头结点返回。
+        while (!stack.isEmpty()) {
+            stack.peek().next = head;
+            head = stack.pop();
+        }
         return head;
     }
 }
