@@ -7,7 +7,15 @@ import com.example.arithmetic.linkedlist.Node;
 /**
  * Created by zhongyao on 2019-06-05.
  */
-public class MyListDelete {
+public class MyListRemove {
+
+    /**
+     * 删除链表中给定的节点(非末尾节点)
+     */
+    public static void doRemoveNode(Node node) {
+        node.data = node.next.data;
+        node.next = node.next.next;
+    }
 
     /**
      * 删除链表中所有值为value的节点
