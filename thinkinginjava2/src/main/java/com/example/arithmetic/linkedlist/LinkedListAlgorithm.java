@@ -3,6 +3,7 @@ package com.example.arithmetic.linkedlist;
 import java.util.ArrayList;
 
 import com.example.arithmetic.linkedlist.delete.MyListRemove;
+import com.example.arithmetic.linkedlist.insert.MyInsertList;
 import com.example.arithmetic.linkedlist.merge.MyList;
 
 /**
@@ -15,9 +16,14 @@ public class LinkedListAlgorithm {
     public static void main(String[] args) {
 
         /**
+         * 向有序的环形单链表中插入新节点
+         */
+        testInsertNode();
+
+        /**
          * 删除链表中某个指定节点(非末端节点)
          */
-        testRemoveNode();
+        //testRemoveNode();
 
         /**
          * 删除链表中某个值的节点
@@ -50,6 +56,23 @@ public class LinkedListAlgorithm {
         //testLinkedListReverse();
         //递归反转法
         //doRecursionReverse();
+    }
+
+    private static void testInsertNode() {
+        Node head = new Node(1);
+        Node node1 = new Node(2);
+        Node node2 = new Node(3);
+        Node node3 = new Node(4);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+
+        Node newNode = new Node(5);
+
+        Node headRet = MyInsertList.doInsertNode(head, newNode);
+        printLinkedList(headRet);
+
     }
 
     private static void testRemoveNode() {
