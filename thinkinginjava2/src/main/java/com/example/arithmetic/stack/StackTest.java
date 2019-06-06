@@ -1,6 +1,7 @@
 package com.example.arithmetic.stack;
 
 import com.example.arithmetic.stack.minstack.MyMinStack;
+import com.example.arithmetic.stack.minstack.MyMinStack2;
 import com.example.arithmetic.stack.queuewithstack.MyQueueWithStack;
 
 /**
@@ -25,7 +26,31 @@ public class StackTest {
         /**
          * 编写一个类，用两个栈实现队列，支持队列的基本操作（add poll peek）
          */
-        testQueueWithStack();
+        //testQueueWithStack();
+
+        /**
+         * 设计一个具有获取min功能的栈
+         */
+
+        testMinStack2();
+    }
+
+    private static void testMinStack2() {
+        MyMinStack2 minStack2 = new MyMinStack2();
+        minStack2.push(3);
+        minStack2.push(2);
+        minStack2.push(1);
+        minStack2.push(4);
+
+        print(minStack2.getMin());
+
+        minStack2.pop();
+        minStack2.pop();
+        minStack2.pop();
+        minStack2.pop();
+
+        print(minStack2.getMin());
+
     }
 
     private static void testQueueWithStack() {
