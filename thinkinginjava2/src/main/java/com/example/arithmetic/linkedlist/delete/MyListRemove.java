@@ -1,5 +1,6 @@
 package com.example.arithmetic.linkedlist.delete;
 
+import java.util.HashSet;
 import java.util.Stack;
 
 import com.example.arithmetic.linkedlist.Node;
@@ -8,6 +9,35 @@ import com.example.arithmetic.linkedlist.Node;
  * Created by zhongyao on 2019-06-05.
  */
 public class MyListRemove {
+
+    /**
+     * 删除无序单链表中值重复出现的节点
+     */
+    public static Node doRemoveRepeatNode(Node head) {
+        Node pre;
+        Node cur;
+        if (head == null) {
+            return null;
+        }
+
+        HashSet<Integer> hashSet = new HashSet<>();
+        hashSet.add(head.data);
+
+        pre = head;
+        cur = head.next;
+        while (cur != null) {
+            if (hashSet.contains(cur.data)) {
+                pre.next = cur.next;
+            } else {
+                hashSet.add(cur.data);
+                pre = cur;
+            }
+            cur = cur.next;
+        }
+
+        return head;
+
+    }
 
     /**
      * 删除链表中给定的节点(非末尾节点)

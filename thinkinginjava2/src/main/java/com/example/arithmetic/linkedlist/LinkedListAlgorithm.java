@@ -16,9 +16,14 @@ public class LinkedListAlgorithm {
     public static void main(String[] args) {
 
         /**
+         * 删除无序单链表中重复的节点
+         */
+        testRemoveRepeatNode();
+
+        /**
          * 向有序的环形单链表中插入新节点
          */
-        testInsertNode();
+        //testInsertNode();
 
         /**
          * 删除链表中某个指定节点(非末端节点)
@@ -56,6 +61,24 @@ public class LinkedListAlgorithm {
         //testLinkedListReverse();
         //递归反转法
         //doRecursionReverse();
+    }
+
+    private static void testRemoveRepeatNode() {
+        Node head = new Node(3);
+        Node node1 = new Node(2);
+        Node node2 = new Node(1);
+        Node node3 = new Node(1);
+        Node node4 = new Node(4);
+        Node node5 = new Node(4);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+
+        Node resultHead = MyListRemove.doRemoveRepeatNode(head);
+        printLinkedList(resultHead);
     }
 
     private static void testInsertNode() {
