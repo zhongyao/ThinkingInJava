@@ -47,7 +47,9 @@ public class TestBinaryTree {
         println();
         order.inOrder(nodeD);
         println();
-        order.postOrder(nodeD);
+        order.postOrder1(nodeD);
+        println();
+        order.postOrder2(nodeD);
     }
 
     private static void testBTRecursionOrder() {

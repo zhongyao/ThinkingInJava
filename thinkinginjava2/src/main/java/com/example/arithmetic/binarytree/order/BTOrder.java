@@ -41,8 +41,58 @@ public class BTOrder {
         }
     }
 
-    public void postOrder(Node head) {
+    /**
+     * 只是用一个栈实现后序遍历的算法:
+     *
+     * @param head
+     */
+    public void postOrder1(Node head) {
+        if (head != null) {
+            stack.push(head);
+            Node c;
+            while (!stack.empty()) {
+                c = stack.peek();
+                if (c.left != null && head != c.left && head != c.right) {
+                    stack.push(c.left);
+                } else if (c.right != null && head != c.right) {
+                    stack.push(c.right);
+                } else {
+                    print(stack.pop().value);
+                    head = c;
+                }
+            }
+        }
+    }
 
+    /**
+     * 使用两个栈实现后序遍历算法
+     *
+     * @param head
+     */
+    public void postOrder2(Node head) {
+        if (head != null) {
+            Stack<Node> stack1 = new Stack<>();
+            Stack<Node> stack2 = new Stack<>();
+
+            stack1.push(head);
+            while (!stack1.empty()) {
+                head = stack1.pop();
+                if (head.left != null) {
+                    stack1.push(head.left);
+                }
+
+                if (head.right != null) {
+                    stack1.push(head.right);
+                }
+
+                stack2.push(head);
+            }
+
+            while (!stack2.empty()) {
+                print(stack2.pop().value);
+            }
+
+        }
     }
 
     private void print(String value) {
