@@ -77,7 +77,10 @@ public class LinkedListAlgorithm {
         node3.next = node4;
         node4.next = node5;
 
-        Node resultHead = MyListRemove.doRemoveRepeatNode(head);
+        //方法一
+        //Node resultHead = MyListRemove.doRemoveRepeatNode1(head);
+        //方法二
+        Node resultHead = MyListRemove.doRemoveRepeatNode2(head);
         printLinkedList(resultHead);
     }
 

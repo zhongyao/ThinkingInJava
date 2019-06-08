@@ -11,9 +11,34 @@ import com.example.arithmetic.linkedlist.Node;
 public class MyListRemove {
 
     /**
-     * 删除无序单链表中值重复出现的节点
+     * 删除无序单链表中值重复的节点
+     * 方法2：类似于选择排序
      */
-    public static Node doRemoveRepeatNode(Node head) {
+    public static Node doRemoveRepeatNode2(Node head) {
+        Node cur = head;
+        Node pre = null;
+        Node next = null;
+        while (cur != null) {
+            pre = cur;
+            next = cur.next;
+            while (next != null) {
+                if (cur.data == next.data) {
+                    pre.next = next.next;
+                }else {
+                    pre = next;
+                }
+                next = next.next;
+            }
+            cur = cur.next;
+        }
+        return head;
+    }
+
+    /**
+     * 删除无序单链表中值重复出现的节点
+     * 方法1：利用哈希表
+     */
+    public static Node doRemoveRepeatNode1(Node head) {
         Node pre;
         Node cur;
         if (head == null) {
