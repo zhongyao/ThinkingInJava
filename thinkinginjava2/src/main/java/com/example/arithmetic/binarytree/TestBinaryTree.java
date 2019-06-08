@@ -44,7 +44,9 @@ public class TestBinaryTree {
         Node nodeD = new Node("D", nodeB, nodeE);
 
         order.preOrder(nodeD);
+        println();
         order.inOrder(nodeD);
+        println();
         order.postOrder(nodeD);
     }
 

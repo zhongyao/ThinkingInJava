@@ -27,7 +27,18 @@ public class BTOrder {
     }
 
     public void inOrder(Node head) {
-
+        if (head != null) {
+            while (!stack.isEmpty() || head != null) {
+                if (head != null) {
+                    stack.push(head);
+                    head = head.left;
+                } else {
+                    head = stack.pop();
+                    print(head.value);
+                    head = head.right;
+                }
+            }
+        }
     }
 
     public void postOrder(Node head) {
