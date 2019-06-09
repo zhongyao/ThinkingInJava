@@ -83,9 +83,55 @@ public class TestSort {
          * 排序过程中每次从无序子表中选出最小的一个元素，将其添加到有序子表的末尾，有序子表保持增长并且
          * 长度增加1，无序子表长度减少1，重复这个过程直到无序子表为空。
          */
-        sortedArray = testSelectSort(array);
-        print(sortedArray);
+        //sortedArray = testSelectSort(array);
+        //print(sortedArray);
 
+        /**
+         * 归并排序：
+         * 参考：https://www.cnblogs.com/of-fanruice/p/7678801.html
+         *
+         */
+
+        sortedArray = mergeSort(array, 0, array.length - 1);
+        print(sortedArray);
+    }
+
+    private static int[] mergeSort(int[] array, int low, int high) {
+        if (low < high) {
+            int mid = (low + high) / 2;
+            mergeSort(array, low, mid);
+            mergeSort(array, mid + 1, high);
+            merge(array, low, mid, high);
+        }
+        return array;
+    }
+
+    private static void merge(int[] array, int low, int mid, int high) {
+        int[] temp = new int[high - low + 1];
+
+        int i = low;
+        int j = mid + 1;
+        int k = 0;
+
+        while (i <= mid && j <= high) {
+            if (array[i] <= array[j]) {
+                temp[k++] = array[i++];
+            } else {
+                temp[k++] = array[j++];
+            }
+        }
+
+        while (i <= mid) {
+            temp[k++] = array[i++];
+        }
+
+        while (j <= high) {
+            temp[k++] = array[j++];
+        }
+
+        for (int x = 0; x < temp.length; x++) {
+            array[x + low] = temp[x];
+        }
     }
 
     // 22 43 28 13 5 20
