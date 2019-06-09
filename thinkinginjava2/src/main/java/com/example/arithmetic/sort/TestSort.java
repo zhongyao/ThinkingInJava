@@ -9,6 +9,7 @@ public class TestSort {
 
     public static void main(String[] args) {
         /**
+         * 原数组序列为：   22 43 28 13 5 20
          * 最终排序结果应为：5 13 20 22 28 43
          */
         int[] array = {22, 43, 28, 13, 5, 20};
@@ -52,16 +53,48 @@ public class TestSort {
          * O(1)
          *
          */
-        sortedArray = testFastSort(array, 0, array.length - 1);
+        //sortedArray = testFastSort(array, 0, array.length - 1);
+        //print(sortedArray);
+
+        /**
+         * 插入排序：
+         * 将数组中的所有元素依次跟前面已经排好的元素进行比较，如果选择的元素比已经排序的元素小，则交换，
+         * 直到全部的元素都比较过为止。
+         *
+         */
+        sortedArray = testInsertSort(array);
         print(sortedArray);
 
     }
 
+    // 22 43 28 13 5 20
+    private static int[] testInsertSort(int[] array) {
+        if (array == null || array.length <= 0) {
+            return null;
+        }
+
+        int key;
+        int temp;
+        for (int i = 1; i < array.length; i++) {
+            //将进行到的某位置的一个position值保存至key中
+            key = i;
+            //当前值大于前一个值，那么两者交互，直到后者不大于前者为止
+            while (i >= 1 && array[i] < array[i - 1]) {
+                temp = array[i - 1];
+                array[i - 1] = array[i];
+                array[i] = temp;
+                i--;
+            }
+            //将原先保存的position值重新赋给i开始下一轮for循环
+            i = key;
+        }
+        return array;
+    }
+
     /**
-     *
      * @param array 待排序数组
-     * @param low 左边界
-     * @param high 右边界
+     * @param low   左边界
+     * @param high  右边界
      * @return
      */
     private static int[] testFastSort(int[] array, int low, int high) {
