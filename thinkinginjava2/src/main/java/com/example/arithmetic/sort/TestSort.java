@@ -57,9 +57,10 @@ public class TestSort {
         //print(sortedArray);
 
         /**
-         * 插入排序：
-         * 将数组中的所有元素依次跟前面已经排好的元素进行比较，如果选择的元素比已经排序的元素小，则交换，
-         * 直到全部的元素都比较过为止。
+         * 插入排序(基本思想)：
+         * 将线性表看出是有序/无序两个部分，有序子表是a[0,i-1],无序子表是a[i,n-1]
+         * 排序过程中每次从无序子表中选出一个元素，将其插入到有序子表的正确位置，有序子表保持正确有序并逐渐增大，
+         * 直到所有的记录都插入到有序子表为止。
          *
          * 最好时间复杂度：
          * O(n)
@@ -73,12 +74,50 @@ public class TestSort {
          * 空间复杂度：
          * O(1)
          */
-        sortedArray = testInsertSort(array);
+        //sortedArray = testInsertSort(array);
+        //print(sortedArray);
+
+        /**
+         * 选择排序（基本思想）：
+         * 将线性表看成是有序/无序两个部分，有序子表是a[0,i-1],无序子表是a[i,n-1]
+         * 排序过程中每次从无序子表中选出最小的一个元素，将其添加到有序子表的末尾，有序子表保持增长并且
+         * 长度增加1，无序子表长度减少1，重复这个过程直到无序子表为空。
+         */
+        sortedArray = testSelectSort(array);
         print(sortedArray);
 
     }
 
     // 22 43 28 13 5 20
+    private static int[] testSelectSort(int[] array) {
+
+        int temp;
+        //存放无序子表中最小元素的index
+        int jmin = 0;
+        //存放无序子表中最小元素的值
+        int amin;
+        int min = 0;
+        for (int i = 0; i < array.length; i++) {
+            amin = array[i];
+            for (int j = i + 1; j < array.length; j++) {
+                //选取无序子表中的最小值
+                if (array[j] < amin) {
+                    amin = array[j];
+                    jmin = j;
+                }
+            }
+
+            //判断、交换
+            if (array[i] > min) {
+                temp = array[i];
+                array[i] = array[jmin];
+                array[jmin] = temp;
+            }
+        }
+
+        return array;
+    }
+
     private static int[] testInsertSort(int[] array) {
         if (array == null || array.length <= 0) {
             return null;
@@ -87,7 +126,7 @@ public class TestSort {
         int key;
         int temp;
         for (int i = 1; i < array.length; i++) {
-            //将进行到的某位置的一个position值保存至key中
+            //将进行到的某位置的一个index值保存至key中
             key = i;
             //当前值大于前一个值，那么两者交互，直到后者不大于前者为止
             while (i >= 1 && array[i] < array[i - 1]) {
@@ -96,7 +135,7 @@ public class TestSort {
                 array[i] = temp;
                 i--;
             }
-            //将原先保存的position值重新赋给i开始下一轮for循环
+            //将原先保存的index值重新赋给i开始下一轮for循环
             i = key;
         }
         return array;
