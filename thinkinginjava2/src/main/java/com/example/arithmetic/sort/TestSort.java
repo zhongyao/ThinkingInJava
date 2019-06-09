@@ -61,6 +61,17 @@ public class TestSort {
          * 将数组中的所有元素依次跟前面已经排好的元素进行比较，如果选择的元素比已经排序的元素小，则交换，
          * 直到全部的元素都比较过为止。
          *
+         * 最好时间复杂度：
+         * O(n)
+         *
+         * 平均时间复杂度：
+         * O(n2)【n的平方】
+         *
+         * 最坏时间复杂度：
+         * O(n2)
+         *
+         * 空间复杂度：
+         * O(1)
          */
         sortedArray = testInsertSort(array);
         print(sortedArray);
