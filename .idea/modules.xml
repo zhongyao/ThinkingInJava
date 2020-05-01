@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-ThinkingInJava.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-ThinkingInJava.iml" group="ThinkingInJava" />
       <module fileurl="file://$PROJECT_DIR$/ThinkingInJava.iml" filepath="$PROJECT_DIR$/ThinkingInJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/ThinkingInJava-app.iml" filepath="$PROJECT_DIR$/app/ThinkingInJava-app.iml" group="ThinkingInJava/app" />
+      <module fileurl="file://$PROJECT_DIR$/thinkinginjava2/ThinkingInJava-thinkinginjava2.iml" filepath="$PROJECT_DIR$/thinkinginjava2/ThinkingInJava-thinkinginjava2.iml" group="ThinkingInJava/thinkinginjava2" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/thinkinginjava2/thinkinginjava2.iml" filepath="$PROJECT_DIR$/thinkinginjava2/thinkinginjava2.iml" />
     </modules>
