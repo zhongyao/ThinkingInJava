@@ -12,8 +12,29 @@ public class TestString {
          */
         //result： fetgra 长度为6
         String string = "effetgraorogee";
-        int resultLength = doString(string);
-        System.out.println("resultLength:" + resultLength);
+        //时间复杂度o3
+//        int resultLength = doString(string);
+//        System.out.println("resultLength:" + resultLength);
+
+        int resultLength2 = doString2(string);
+        System.out.println("resultLength2:" + resultLength2);
+    }
+
+    private static int doString2(String s) {
+        Set<Character> set = new HashSet<>();
+        int n = s.length();
+        int ans = 0;
+        int i = 0;
+        int j = 0;
+        while (i < n && j < n) {
+            if (!set.contains(s.charAt(j))) {
+                set.add(s.charAt(j++));
+                ans = Math.max(ans, j - i);
+            } else {
+                set.remove(s.charAt(i++));
+            }
+        }
+        return ans;
     }
 
     private static int doString(String string) {
@@ -44,4 +65,6 @@ public class TestString {
         System.out.println(chr.toString());
         return true;
     }
+
+
 }
