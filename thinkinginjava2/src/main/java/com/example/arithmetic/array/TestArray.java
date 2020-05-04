@@ -22,6 +22,27 @@ public class TestArray {
         int[] orderArray = {1, 3, 5, 5, 7, 8, 8, 9, 90, 90};
         //result:1, 3, 5, 7, 8, 9, 90
         deleteOrderedArrayRepeat(orderArray);
+
+        //方法2：
+        deleteOrderedArrayRepeat2(orderArray);
+    }
+
+    /**
+     * 思路：
+     * 1、将数组中没有出现过的数字，根据索引先后一个个插入到现有数组中，并计数，最后根据计数值取前几位的数组，就是新的结果数组。
+     *
+     * @param orderArray
+     */
+    private static void deleteOrderedArrayRepeat2(int[] orderArray) {
+        int i = 0;
+        for (int j = 1; j < orderArray.length; j++) {
+            if (orderArray[i] != orderArray[j]) {
+                i++;
+                orderArray[i] = orderArray[j];
+            }
+        }
+        int[] resultArray = Arrays.copyOfRange(orderArray, 0, i + 1);
+        System.out.println("方法2：" + Arrays.toString(resultArray));
     }
 
     /**
