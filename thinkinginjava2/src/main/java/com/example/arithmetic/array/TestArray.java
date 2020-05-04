@@ -2,6 +2,7 @@ package com.example.arithmetic.array;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Stack;
 
 public class TestArray {
     public static void main(String[] args) {
@@ -9,10 +10,44 @@ public class TestArray {
         /**
          * 合并两个有序数组,合并后的数组依然是有序的
          */
-        int[] array1 = {2, 4, 6, 10,122};
-        int[] array2 = {3, 5, 7, 8, 9,22,33,90};
+        int[] array1 = {2, 4, 6, 10, 122};
+        int[] array2 = {3, 5, 7, 8, 9, 22, 33, 90};
         int[] array = mergeOrderArrays(array1, array2);
         System.out.println("length:" + array.length + " array:" + Arrays.toString(array));
+
+
+        /**
+         * 删除排序数组中的重复项
+         */
+        int[] orderArray = {1, 3, 5, 5, 7, 8, 8, 9, 90, 90};
+        //result:1, 3, 5, 7, 8, 9, 90
+        deleteOrderedArrayRepeat(orderArray);
+    }
+
+    /**
+     * 步骤：
+     * 1、从头开始，将不重复的元素放置栈中。
+     * 2、然后根据栈中的元素个数，定义一个同样长度的新数组。将出栈的第一个元素放置新数组的末尾，... ，
+     * 最后一个出栈的一个元素放置新数组的首位即可
+     *
+     * @param orderArray
+     */
+    private static void deleteOrderedArrayRepeat(int[] orderArray) {
+        Stack<Integer> tempStack = new Stack<>();
+        for (int i = 0; i < orderArray.length; i++) {
+            if (!tempStack.contains(orderArray[i])) {
+                tempStack.push(orderArray[i]);
+            }
+        }
+
+        int resultSize = tempStack.size();
+        int[] resultArray = new int[resultSize];
+        for (int i = 0; i < resultSize; i++) {
+            resultArray[resultSize - 1 - i] = tempStack.pop();
+        }
+
+        System.out.println(Arrays.toString(resultArray));
+
     }
 
     private static int[] mergeOrderArrays(int[] array1, int[] array2) {
