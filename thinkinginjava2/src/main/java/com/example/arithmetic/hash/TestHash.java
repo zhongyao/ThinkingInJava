@@ -1,5 +1,6 @@
 package com.example.arithmetic.hash;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -32,6 +33,29 @@ public class TestHash {
         int resultNum2 = findOnceElement2(array);
         System.out.println("resultNum2: " + resultNum2);
 
+
+        /**
+         * 存在重复元素：
+         * 给定一个整形数组，判断是否存在重复元素
+         */
+        int[] a = {4, 1, 2, 3, 5, 7, 8, 89, 40};
+        boolean result = judgeRepeatedNum(a);
+        System.out.println("有重复元素: " + result);
+
+    }
+
+    private static boolean judgeRepeatedNum(int[] array) {
+        if (array == null || array.length == 0) {
+            return false;
+        }
+
+        Set<Integer> set = new HashSet<>();
+        for (int element : array) {
+            if (!set.add(element)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static int findOnceElement2(int[] array) {
