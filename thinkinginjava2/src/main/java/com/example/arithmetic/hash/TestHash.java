@@ -16,7 +16,7 @@ public class TestHash {
          * 2、在放入之前，需先判断一下stack1中是否有该元素；
          * 3、如果没有，则正常放入stack1中；
          * 4、如果有，则将该元素放置stack2中，所以最终stack2中的元素均是重复的元素值。
-         * 5、遍历数组元素实在在stack2中,最终不在stack2中的那个元素，即是只出现一次的数字
+         * 5、遍历数组元素实在在stack2中,最终不在stack2中的那个元素，即是只出现一次的数字..
          */
         int[] array = {4, 1, 2, 1, 2, 3, 3, 5, 5};
         int resultNum = findOnceElement(array);
