@@ -88,7 +88,10 @@ public class TestHash {
             System.out.println("不存在唯一字符");
         }
 
-
+        //附加：JAVA有自动提升数据类型的机制,比如int+char结果就是int,int+String结果就是String
+        char a = 'a';
+        char b = 'b';
+        int result = b - a;//结果result为1
     }
 
     private static boolean judgeRepeatedNum(int[] array) {
