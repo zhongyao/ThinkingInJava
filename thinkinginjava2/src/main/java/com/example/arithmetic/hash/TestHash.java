@@ -1,10 +1,14 @@
 package com.example.arithmetic.hash;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.Stack;
+import java.util.TreeSet;
 
 public class TestHash {
     public static void main(String[] args) {
@@ -42,6 +46,42 @@ public class TestHash {
         boolean result = judgeRepeatedNum(a);
         System.out.println("有重复元素: " + result);
 
+
+        /**
+         * 字符串中的第一个唯一字符：
+         * 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引，如果不存在则返回-1.
+         * 【只包含小写字母】
+         *
+         * 思路：
+         * 1、创建一个list集合和黑名单blackList集合，将字符串中的每一个字符，从头开始add至list中，前提是黑名单blackList中不存在该元素且list中不存在该元素。
+         * 2、如果list中已包含该元素，则证明该元素重复，将该字符从list中移除,并将该字符添加到黑名单blackList中。
+         * 3、依次类推，只有字符串唯一字符，会被add值list中。
+         * 4、取第一个字符即是所找的字符。
+         * 5、通过s.indexOf("所找字符")返回索引即可
+         */
+        String s = "allooveJaammees";
+        char[] charArray = s.toCharArray();
+        findFirstSingleChar(s, charArray);
+
+    }
+
+    private static void findFirstSingleChar(String string, char[] charArray) {
+        List<Character> list = new ArrayList<>();
+        List<Character> blackList = new ArrayList<>();
+        for (char charElement : charArray) {
+            if (!blackList.contains(charElement)) {
+                if (list.contains(charElement)) {
+                    list.remove(Character.valueOf(charElement));
+                    blackList.add(charElement);
+                } else {
+                    list.add(charElement);
+                }
+            }
+        }
+
+        char resultChar = list.get(0);
+        int resultIndex = string.indexOf(resultChar);
+        System.out.println("resultChar:" + resultChar + " resultIndex:" + resultIndex);
     }
 
     private static boolean judgeRepeatedNum(int[] array) {
