@@ -59,7 +59,7 @@ public class TestHash {
          * 4、取第一个字符即是所找的字符。
          * 5、通过s.indexOf("所找字符")返回索引即可
          */
-        String s = "allooveJaammees";
+        String s = "allooveJJaammeess";
         char[] charArray = s.toCharArray();
         findFirstSingleChar(s, charArray);
 
@@ -79,9 +79,16 @@ public class TestHash {
             }
         }
 
-        char resultChar = list.get(0);
-        int resultIndex = string.indexOf(resultChar);
-        System.out.println("resultChar:" + resultChar + " resultIndex:" + resultIndex);
+        if (list.size() > 0) {
+            char resultChar = list.get(0);
+            int resultIndex = string.indexOf(resultChar);
+            System.out.println("resultChar:" + resultChar + " resultIndex:" + resultIndex);
+        } else {
+            int resultIndex = -1;
+            System.out.println("不存在唯一字符");
+        }
+
+
     }
 
     private static boolean judgeRepeatedNum(int[] array) {
