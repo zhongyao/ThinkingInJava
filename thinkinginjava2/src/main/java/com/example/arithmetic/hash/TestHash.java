@@ -1,14 +1,13 @@
 package com.example.arithmetic.hash;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
-import java.util.TreeSet;
 
 public class TestHash {
     public static void main(String[] args) {
@@ -63,6 +62,56 @@ public class TestHash {
         char[] charArray = s.toCharArray();
         findFirstSingleChar(s, charArray);
 
+
+        /**
+         * 给定一种'pattern（模式）'和一个字符串'str'，判断字符串'str'是否遵循相同的模式：
+         * 这里的遵循指完全匹配，例如：'pattern'里的每个字母和字符串'str'中的每个非空单词之间存在着对应的模式。
+         *
+         * 示例：
+         * 输入pattern = "aabba", str = "dog dog cat cat dog"  返回true
+         * 输入pattern = "aabba", str = "dog dog cat dog dog"  返回false
+         *
+         * 说明：
+         * 可以假设"pattern"只包含小写字母，"str"包含了由单个空格分隔的小写字母。
+         *
+         * 思路：
+         * 1、将pattern转成字符串数组(即每个元素只包含一个字符)
+         * 2、将str转成字符串数组(即每个元素是一个字符串【单词】)
+         * 3、判断两者length是否相等，如果不等直接返回false
+         * 4、然后逐步从头开始将pattern的每个index索引对应的元素作为key，将str的每个index索引对应的元素作为value【如果有重复以第一个为准】，存至Map中(如果没有map中无此key的话)。
+         * 如果有，那么会将此时此value跟map中对应key的value进行对比，如果不相同则返回false。直至最后，如果没毛病，则返回true。
+         *
+         */
+        String pattern = "abbaa";
+        String str = "dog cat cat cat dog";
+
+        boolean flag = judgePattern(pattern, str);
+        System.out.println("flag:" + flag);
+
+    }
+
+    private static boolean judgePattern(String pattern, String str) {
+        char[] patternArray = pattern.toCharArray();
+        String[] strArray = str.split(" ");
+
+        if (patternArray.length != strArray.length) {
+            return false;
+        }
+        Map<String, String> hashMap = new HashMap<>();
+        for (int i = 0; i < patternArray.length; i++) {
+            String key = String.valueOf(patternArray[i]);
+            String value = strArray[i];
+
+            if (!hashMap.containsKey(key)) {
+                hashMap.put(key, value);
+            } else {
+                String mapValue = hashMap.get(key);
+                if (!mapValue.equals(value)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private static void findFirstSingleChar(String string, char[] charArray) {
