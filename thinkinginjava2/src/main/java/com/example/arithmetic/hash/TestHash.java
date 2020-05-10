@@ -107,6 +107,37 @@ public class TestHash {
         Integer[] arrayA = {1, 2, 2, 1};
         Integer[] arrayB = {2, 2};
         intersection1(arrayA, arrayB);
+
+        /**
+         * 给定两个数组（2）：
+         * 给定两个数组，写一个方法来计算他们的交集。
+         * 提示：输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。
+         * 如 arrayA = [1,2,2,1]  arrayB = [2,2]  输出[2,2]
+         *
+         * 思路：
+         * 1、对arrayB进行遍历，从index=0开始如果arrayA中包含arrayB[0]
+         * 2、那么将此元素，放置新数组C中，同时将arrayA中的此元素删除。
+         * 3、依次类推。
+         */
+
+        Integer[] arrayAA = {1, 2, 2, 1};
+        Integer[] arrayBB = {2, 2};
+        intersection2(arrayAA, arrayBB);
+    }
+
+    private static void intersection2(Integer[] arrayA, Integer[] arrayB) {
+        List<Integer> listA = new ArrayList<>(Arrays.asList(arrayA));
+        List<Integer> listB = new ArrayList<>(Arrays.asList(arrayB));
+        List<Integer> resultList = new ArrayList<>();
+        for (int i = 0; i < listB.size(); i++) {
+            Integer element = listB.get(i);
+            if (listA.contains(element)) {
+                resultList.add(element);
+                listA.remove(element);
+            }
+        }
+
+        System.out.println("resultList2:" + resultList);
     }
 
     private static void intersection1(Integer[] arrayA, Integer[] arrayB) {
