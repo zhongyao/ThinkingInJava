@@ -1,6 +1,9 @@
 package com.example.arithmetic.hash;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -88,6 +91,36 @@ public class TestHash {
         boolean flag = judgePattern(pattern, str);
         System.out.println("flag:" + flag);
 
+
+        /**
+         * 两个数组的交集（1）：
+         * 给定两个数组，写一个函数来计算他们的交集。
+         * 提示：在结果中的每个元素必定是唯一的；可以不用考虑输出顺序
+         * 如 arrayA = [1,2,2,1]  arrayB = [2,2]  输出[2]
+         *
+         * 思路：
+         * 1、对arrayA进行遍历，从index=0开始如果arrayB中包含arrayA[0]
+         * 2、那么将此元素，放置新数组C中[准备放入C的时刻，需要保证C中无此元素]；如果不包含，那么继续遍历index=1
+         * 3、依次类推
+         */
+
+        Integer[] arrayA = {1, 2, 2, 1};
+        Integer[] arrayB = {2, 2};
+        intersection1(arrayA, arrayB);
+    }
+
+    private static void intersection1(Integer[] arrayA, Integer[] arrayB) {
+        List<Integer> listA = Arrays.asList(arrayA);
+        List<Integer> listB = Arrays.asList(arrayB);
+        List<Integer> resultList = new ArrayList<>();
+        for (int i = 0; i < listA.size(); i++) {
+            Integer element = listA.get(i);
+            if (listB.contains(element) && !resultList.contains(element)) {
+                resultList.add(element);
+            }
+        }
+
+        System.out.println("resultList:" + resultList);
     }
 
     private static boolean judgePattern(String pattern, String str) {
