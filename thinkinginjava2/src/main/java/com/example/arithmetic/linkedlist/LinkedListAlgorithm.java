@@ -18,7 +18,7 @@ public class LinkedListAlgorithm {
         /**
          * 删除无序单链表中重复的节点
          */
-        testRemoveRepeatNode();
+//        testRemoveRepeatNode();
 
         /**
          * 向有序的环形单链表中插入新节点
@@ -58,9 +58,9 @@ public class LinkedListAlgorithm {
          * 4 5 3 2
          */
         //遍历反转法
-        //testLinkedListReverse();
+//        testLinkedListReverse();
         //递归反转法
-        //doRecursionReverse();
+        doRecursionReverse();
     }
 
     private static void testRemoveRepeatNode() {

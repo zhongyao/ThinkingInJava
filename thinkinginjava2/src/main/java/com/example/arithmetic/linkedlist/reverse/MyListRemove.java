@@ -48,12 +48,18 @@ public class MyListRemove {
      * @return
      */
     public static Node doRecursionReverse(Node head) {
+        /**
+         * 递归头：什么时候不调用自身的方法。如果没有头，将陷入死循环，它是递归的结束条件。
+         */
         //head看做是前一节点，head.next 看作是当前节点，reHead是反转后新链表的头结点
         if (head == null || head.next == null) {
             //若为空链表或者当前节点在尾节点，直接返回
             return head;
         }
 
+        /**
+         * 递归体：说明时候需要调用自身方法。
+         */
         //先反转后续节点head.next
         Node reHead = doRecursionReverse(head.next);
         //将当前节点的指针域指向前一节点(注：head.next看作是当前节点)
