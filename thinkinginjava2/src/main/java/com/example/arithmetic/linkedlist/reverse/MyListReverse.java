@@ -7,7 +7,7 @@ import com.example.arithmetic.linkedlist.Node;
  * 单链表反转
  * 思路：
  */
-public class MyListRemove {
+public class MyListReverse {
 
     /**
      * 遍历反转法：
@@ -58,7 +58,7 @@ public class MyListRemove {
         }
 
         /**
-         * 递归体：说明时候需要调用自身方法。
+         * 递归体：什么时候需要调用自身方法。
          */
         //先反转后续节点head.next
         Node reHead = doRecursionReverse(head.next);

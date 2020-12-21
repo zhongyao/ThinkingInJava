@@ -226,9 +226,7 @@ public class TestSort {
     }
 
     private static int[] testBubbleSort(int[] array) {
-
         int temp;
-
         /**
          * 外层控制循环多少趟
          * 内层控制每一趟循环次数
@@ -244,7 +242,6 @@ public class TestSort {
                 }
             }
         }
-
         return array;
     }
 

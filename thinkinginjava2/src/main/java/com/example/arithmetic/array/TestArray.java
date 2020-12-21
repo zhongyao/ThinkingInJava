@@ -1,5 +1,7 @@
 package com.example.arithmetic.array;
 
+import com.example.arithmetic.array.search.TestBinarySearch;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Stack;
@@ -25,6 +27,14 @@ public class TestArray {
 
         //方法2：
         deleteOrderedArrayRepeat2(orderArray);
+
+        /**
+         * 二分查找
+         */
+        int[] a = {1, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59};
+        int key = 37;
+        int index = TestBinarySearch.binarySearch(a, key);
+        System.out.println("index:" + index);
     }
 
     /**
@@ -109,6 +119,5 @@ public class TestArray {
             }
         }
         return array;
-
     }
 }

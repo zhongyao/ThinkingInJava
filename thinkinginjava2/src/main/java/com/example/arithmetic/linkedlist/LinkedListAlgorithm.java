@@ -2,14 +2,17 @@ package com.example.arithmetic.linkedlist;
 
 import java.util.ArrayList;
 
+import com.example.arithmetic.linkedlist.circlelinkedlist.MyCircleLinkedList;
 import com.example.arithmetic.linkedlist.delete.MyListRemove;
 import com.example.arithmetic.linkedlist.insert.MyInsertList;
+import com.example.arithmetic.linkedlist.intersect.MyIntersectLinkedList;
 import com.example.arithmetic.linkedlist.merge.MyList;
+import com.example.arithmetic.linkedlist.reverse.MyListReverse;
 
 /**
  * Created by zhongyao on 2019-06-03.
  * 链表相关算法
- *
+ * <p>
  * algorithm  [ˈælɡərɪðəm] 算法
  */
 public class LinkedListAlgorithm {
@@ -47,7 +50,7 @@ public class LinkedListAlgorithm {
          * 1 2 3 4 5 6 7 9
          */
         //遍历合并
-        //testMerge();
+        testMerge();
         //递归合并
         //testRecursionMerge();
 
@@ -60,7 +63,68 @@ public class LinkedListAlgorithm {
         //遍历反转法
 //        testLinkedListReverse();
         //递归反转法
-        doRecursionReverse();
+//        doRecursionReverse();
+
+        /**
+         * 判断单项链表中是否有环
+         */
+
+//        testJudgeLinkedListCircle();
+
+        /**
+         * 找到两个单链表相交的起始节点
+         */
+//        testLinkedListIntersect();
+    }
+
+    private static void testLinkedListIntersect() {
+        Node headA = new Node(3);
+        Node nodeA1 = new Node(2);
+        Node nodeA2 = new Node(6);
+
+        Node headB = new Node(7);
+        Node nodeB1 = new Node(9);
+
+        //交点
+        Node node2 = new Node(5);
+        Node node3 = new Node(8);
+
+        headA.next = nodeA1;
+        nodeA1.next = nodeA2;
+        nodeA2.next = node2;
+        node2.next = node3;
+
+        headB.next = nodeB1;
+        nodeB1.next = node2;
+        node2.next = node3;
+
+//        Node node = MyIntersectLinkedList.doIntersect(headA, headB);
+        Node node = MyIntersectLinkedList.doIntersect2(headA, headB);
+        System.out.println("node:" + node);
+
+    }
+
+
+    private static void testJudgeLinkedListCircle() {
+        Node head = new Node(3);
+        Node node1 = new Node(2);
+        Node node2 = new Node(0);
+        Node node3 = new Node(0);
+        Node node4 = new Node(-4);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node1;
+
+        //方法1：栈存储判断法
+//        boolean result = MyCircleLinkedList.judgeLinkedListHasLoop(head);
+        //方法2：声明快慢指针法
+        boolean result = MyCircleLinkedList.judgeLinkedListHasLoop2(head);
+        System.out.println("有环：" + result);
+
+
     }
 
     private static void testRemoveRepeatNode() {
@@ -193,7 +257,7 @@ public class LinkedListAlgorithm {
         //打印反转前的链表
         printLinkedList(head);
 
-        Node reverseHead = com.example.arithmetic.linkedlist.reverse.MyListRemove.doRecursionReverse(head);
+        Node reverseHead = MyListReverse.doRecursionReverse(head);
         //打印反转后的链表
         printLinkedList(reverseHead);
 
@@ -212,7 +276,7 @@ public class LinkedListAlgorithm {
         //打印反转前的链表
         printLinkedList(head);
 
-        Node reverseHead = com.example.arithmetic.linkedlist.reverse.MyListRemove.doReverse(head);
+        Node reverseHead = MyListReverse.doReverse(head);
         //打印反转后的链表
         printLinkedList(reverseHead);
     }
