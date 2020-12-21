@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Stack;
 
 import com.example.arithmetic.linkedlist.Node;
+import com.example.arithmetic.sum.bean.ListNode;
 
 /**
  * Created by zhongyao on 2019-06-05.
@@ -36,7 +37,8 @@ public class MyListRemove {
 
     /**
      * 删除无序单链表中值重复出现的节点
-     * 方法1：利用哈希表
+     * 方法1：利用哈希表:
+     * 如果HashSet中不包含当前节点的值，则存入HashSet中，后移一位继续判断；如果包含，则将前一节点的next值指向当前节点的next值(即删除当前节点)。
      */
     public static Node doRemoveRepeatNode1(Node head) {
         Node pre;
@@ -59,9 +61,7 @@ public class MyListRemove {
             }
             cur = cur.next;
         }
-
         return head;
-
     }
 
     /**
@@ -70,6 +70,27 @@ public class MyListRemove {
     public static void doRemoveNode(Node node) {
         node.data = node.next.data;
         node.next = node.next.next;
+    }
+
+    /**
+     * 删除链表中给定的节点(非末尾节点)【效率低】
+     * 方法2
+     * @param node
+     */
+    public static void deleteNode(Node node) {
+        if (node == null) {
+            return;
+        }
+        Node head = node;
+        //1、将需要删除的节点后面节点的值，依次赋给前一个节点。
+        while (head.next.next != null) {
+            head.data = head.next.data;
+            head = head.next;
+        }
+        //2、将最后一个节点的值赋给倒数第二个节点
+        head.data = head.next.data;
+        //3、将最后一个节点删除
+        head.next = null;
     }
 
     /**

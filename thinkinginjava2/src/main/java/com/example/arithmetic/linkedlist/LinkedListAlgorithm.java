@@ -8,6 +8,7 @@ import com.example.arithmetic.linkedlist.insert.MyInsertList;
 import com.example.arithmetic.linkedlist.intersect.MyIntersectLinkedList;
 import com.example.arithmetic.linkedlist.merge.MyList;
 import com.example.arithmetic.linkedlist.reverse.MyListReverse;
+import com.example.arithmetic.sum.bean.ListNode;
 
 /**
  * Created by zhongyao on 2019-06-03.
@@ -31,7 +32,9 @@ public class LinkedListAlgorithm {
         /**
          * 删除链表中某个指定节点(非末端节点)
          */
-        //testRemoveNode();
+        testRemoveNode();
+
+
 
         /**
          * 删除链表中某个值的节点
@@ -50,7 +53,7 @@ public class LinkedListAlgorithm {
          * 1 2 3 4 5 6 7 9
          */
         //遍历合并
-        testMerge();
+//        testMerge();
         //递归合并
         //testRecursionMerge();
 
@@ -165,17 +168,22 @@ public class LinkedListAlgorithm {
 
     }
 
-    private static void testRemoveNode() {
+        private static void testRemoveNode() {
         Node head = new Node(1);
         Node node1 = new Node(2);
         Node node2 = new Node(3);
         Node node3 = new Node(4);
+        Node node4 = new Node(5);
+        Node node5 = new Node(6);
 
         head.next = node1;
         node1.next = node2;
         node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
 
         MyListRemove.doRemoveNode(node2);
+//        MyListRemove.deleteNode(node2);
 
         printLinkedList(head);
     }
