@@ -32,7 +32,7 @@ public class LinkedListAlgorithm {
         /**
          * 删除链表中某个指定节点(非末端节点)
          */
-        testRemoveNode();
+//        testRemoveNode();
 
 
 
@@ -53,7 +53,7 @@ public class LinkedListAlgorithm {
          * 1 2 3 4 5 6 7 9
          */
         //遍历合并
-//        testMerge();
+        testMerge();
         //递归合并
         //testRecursionMerge();
 
