@@ -1,12 +1,21 @@
 package com.example.arithmetic.array;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Stack;
 
 public class TestArray {
     public static void main(String[] args) {
 
+        /**
+         * 在一个长为n字符串中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.（从0开始计数）
+         * 【注：字符串只有字母组成】
+         * 如:
+         * 输入：google
+         * 返回：4
+         */
+        int resultIndex = firstNotRepeatingChar2("google");
+        System.out.println("resultIndex:" + resultIndex);
         /**
          * 合并两个有序数组,合并后的数组依然是有序的
          */
@@ -14,7 +23,6 @@ public class TestArray {
         int[] array2 = {3, 5, 7, 8, 9, 22, 33, 90};
         int[] array = mergeOrderArrays(array1, array2);
         System.out.println("length:" + array.length + " array:" + Arrays.toString(array));
-
 
         /**
          * 删除排序数组中的重复项
@@ -25,6 +33,53 @@ public class TestArray {
 
         //方法2：
         deleteOrderedArrayRepeat2(orderArray);
+    }
+
+    /**
+     * 方法1 --- 思路：
+     * 1、获取当前index的字符，并删除[删除不方便，可使用另一个str中没有的字符替换]
+     * 2、判断删除后的字符串中是否还包含该字符
+     * 3、如果包含则遍历继续
+     * 4、如果不包含，则return i
+     *
+     * @param str
+     * @return
+     */
+    public static int firstNotRepeatingChar(String str) {
+        String repChar = "*";
+        for (int i = 0; i < str.length(); i++) {
+            char letter = str.charAt(i);
+            System.out.println("letter：" + letter);
+            String result = str.replaceFirst(letter + "", repChar);
+            if (!result.contains(letter + "")) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 方法2 --- 思路：
+     * 1、定义一个HashMap key是Char类型，value是boolean类型
+     * 2、将每个字符逐个放入HashMap中，如果没存在value就是true，已存在就是false
+     * 3、最终在遍历一遍，HashMap中存储的字典中，第一个value值为true的当前index就是答案
+     * @param str
+     * @return
+     */
+    public static int firstNotRepeatingChar2(String str) {
+        HashMap<Character, Boolean> hashMap = new HashMap<>();
+        char[] chars = str.toCharArray();
+        for (char aChar : chars) {
+            hashMap.put(aChar, !hashMap.containsKey(aChar));
+        }
+
+        for (int i = 0; i < chars.length; i++) {
+            if (hashMap.get(chars[i])) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     /**

@@ -18,7 +18,7 @@ public class LinkedListAlgorithm {
         /**
          * 删除无序单链表中重复的节点
          */
-        testRemoveRepeatNode();
+//        testRemoveRepeatNode();
 
         /**
          * 向有序的环形单链表中插入新节点
@@ -47,7 +47,7 @@ public class LinkedListAlgorithm {
          * 1 2 3 4 5 6 7 9
          */
         //遍历合并
-        //testMerge();
+        testMerge();
         //递归合并
         //testRecursionMerge();
 
