@@ -1,5 +1,7 @@
 package com.example.arithmetic.hash;
 
+import com.example.arithmetic.hash.sum.MyTwoNumSum;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -123,6 +125,16 @@ public class TestHash {
         Integer[] arrayAA = {1, 2, 2, 1};
         Integer[] arrayBB = {2, 2};
         intersection2(arrayAA, arrayBB);
+
+        /**
+         * 【算法】两数之和
+         */
+        int[] numbs = new int[]{2, 7, 11, 15};
+        int target = 9;
+//        int[] c = MyTwoNumSum.twoSum(numbs, target);
+        int[] c = MyTwoNumSum.twoSumUseHashMap(numbs, target);
+        System.out.println("c:" + Arrays.toString(c));
+
     }
 
     private static void intersection2(Integer[] arrayA, Integer[] arrayB) {

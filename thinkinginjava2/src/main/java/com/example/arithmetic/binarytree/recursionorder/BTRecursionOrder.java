@@ -4,7 +4,7 @@ import com.example.arithmetic.binarytree.Node;
 
 /**
  * Created by zhongyao on 2019-06-08.
- * 递归：二叉树先序遍历
+ * 递归：二叉树遍历
  */
 public class BTRecursionOrder {
 
