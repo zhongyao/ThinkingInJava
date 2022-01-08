@@ -3,9 +3,9 @@ package com.example.arithmetic.array;
 
 import com.example.arithmetic.array.search.TestBinarySearch;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Stack;
 
 public class TestArray {
@@ -18,33 +18,35 @@ public class TestArray {
          * 输入：google
          * 返回：4
          */
-        int resultIndex = firstNotRepeatingChar2("google");
-        System.out.println("resultIndex:" + resultIndex);
+//        int resultIndex = firstNotRepeatingChar2("google");
+//        System.out.println("resultIndex:" + resultIndex);
+
+
         /**
          * 合并两个有序数组,合并后的数组依然是有序的
          */
         int[] array1 = {2, 4, 6, 10, 122};
         int[] array2 = {3, 5, 7, 8, 9, 22, 33, 90};
-        int[] array = mergeOrderArrays(array1, array2);
-        System.out.println("length:" + array.length + " array:" + Arrays.toString(array));
+//        int[] array = mergeOrderArrays(array1, array2);
+//        System.out.println("length:" + array.length + " array:" + Arrays.toString(array));
 
         /**
          * 删除排序数组中的重复项
          */
         int[] orderArray = {1, 3, 5, 5, 7, 8, 8, 9, 90, 90};
         //result:1, 3, 5, 7, 8, 9, 90
-        deleteOrderedArrayRepeat(orderArray);
+//        deleteOrderedArrayRepeat(orderArray);
 
         //方法2：
-        deleteOrderedArrayRepeat2(orderArray);
+//        deleteOrderedArrayRepeat2(orderArray);
 
         /**
          * 二分查找
          */
         int[] a = {1, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59};
         int key = 37;
-        int index = TestBinarySearch.binarySearch(a, key);
-        System.out.println("index:" + index);
+//        int index = TestBinarySearch.binarySearch(a, key);
+//        System.out.println("index:" + index);
     }
 
     /**
