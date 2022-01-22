@@ -1,15 +1,20 @@
 package com.example.arithmetic.array;
 
-
-import com.example.arithmetic.array.search.TestBinarySearch;
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Stack;
 
 public class TestArray {
     public static void main(String[] args) {
+
+        /**
+         * 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+         */
+        int[] nums = {2, 2, 3, 1, 3};
+        int res = singleNumber(nums);
+        System.out.println("res:" + res);
 
         /**
          * 在一个长为n字符串中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.（从0开始计数）
@@ -47,6 +52,14 @@ public class TestArray {
         int key = 37;
 //        int index = TestBinarySearch.binarySearch(a, key);
 //        System.out.println("index:" + index);
+    }
+
+    public static int singleNumber(int[] nums) {
+        int res = 0;
+        for (int num: nums) {
+            res = res ^ num;
+        }
+        return res;
     }
 
     /**
