@@ -1,40 +1,112 @@
 package com.example.arithmetic.array;
 
-import com.example.arithmetic.array.search.TestBinarySearch;
-
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Stack;
 
 public class TestArray {
     public static void main(String[] args) {
 
         /**
+         * 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+         */
+        int[] nums = {2, 2, 3, 1, 3};
+        int res = singleNumber(nums);
+        System.out.println("res:" + res);
+
+        /**
+         * 在一个长为n字符串中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.（从0开始计数）
+         * 【注：字符串只有字母组成】
+         * 如:
+         * 输入：google
+         * 返回：4
+         */
+//        int resultIndex = firstNotRepeatingChar2("google");
+//        System.out.println("resultIndex:" + resultIndex);
+
+
+        /**
          * 合并两个有序数组,合并后的数组依然是有序的
          */
         int[] array1 = {2, 4, 6, 10, 122};
         int[] array2 = {3, 5, 7, 8, 9, 22, 33, 90};
-        int[] array = mergeOrderArrays(array1, array2);
-        System.out.println("length:" + array.length + " array:" + Arrays.toString(array));
-
+//        int[] array = mergeOrderArrays(array1, array2);
+//        System.out.println("length:" + array.length + " array:" + Arrays.toString(array));
 
         /**
          * 删除排序数组中的重复项
          */
         int[] orderArray = {1, 3, 5, 5, 7, 8, 8, 9, 90, 90};
         //result:1, 3, 5, 7, 8, 9, 90
-        deleteOrderedArrayRepeat(orderArray);
+//        deleteOrderedArrayRepeat(orderArray);
 
         //方法2：
-        deleteOrderedArrayRepeat2(orderArray);
+//        deleteOrderedArrayRepeat2(orderArray);
 
         /**
          * 二分查找
          */
         int[] a = {1, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59};
         int key = 37;
-        int index = TestBinarySearch.binarySearch(a, key);
-        System.out.println("index:" + index);
+//        int index = TestBinarySearch.binarySearch(a, key);
+//        System.out.println("index:" + index);
+    }
+
+    public static int singleNumber(int[] nums) {
+        int res = 0;
+        for (int num: nums) {
+            res = res ^ num;
+        }
+        return res;
+    }
+
+    /**
+     * 方法1 --- 思路：
+     * 1、获取当前index的字符，并删除[删除不方便，可使用另一个str中没有的字符替换]
+     * 2、判断删除后的字符串中是否还包含该字符
+     * 3、如果包含则遍历继续
+     * 4、如果不包含，则return i
+     *
+     * @param str
+     * @return
+     */
+    public static int firstNotRepeatingChar(String str) {
+        String repChar = "*";
+        for (int i = 0; i < str.length(); i++) {
+            char letter = str.charAt(i);
+            System.out.println("letter：" + letter);
+            String result = str.replaceFirst(letter + "", repChar);
+            if (!result.contains(letter + "")) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 方法2 --- 思路：
+     * 1、定义一个HashMap key是Char类型，value是boolean类型
+     * 2、将每个字符逐个放入HashMap中，如果没存在value就是true，已存在就是false
+     * 3、最终在遍历一遍，HashMap中存储的字典中，第一个value值为true的当前index就是答案
+     * @param str
+     * @return
+     */
+    public static int firstNotRepeatingChar2(String str) {
+        HashMap<Character, Boolean> hashMap = new HashMap<>();
+        char[] chars = str.toCharArray();
+        for (char aChar : chars) {
+            hashMap.put(aChar, !hashMap.containsKey(aChar));
+        }
+
+        for (int i = 0; i < chars.length; i++) {
+            if (hashMap.get(chars[i])) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     /**

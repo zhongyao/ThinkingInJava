@@ -16,8 +16,8 @@ public class TestBinaryTree {
          * 中序遍历
          * 后续遍历
          */
-        testBTRecursionOrder();
-        println();
+//        testBTRecursionOrder();
+//        println();
 
         /**
          * 非递归实现：
@@ -25,13 +25,53 @@ public class TestBinaryTree {
          * 中序遍历
          * 后序遍历
          */
-        testBTOrder();
+//        testBTOrder();
 
 
         /**
          * 广度优先遍历【层次遍历】
          */
-        testBFSOrder();
+//        testBFSOrder();
+
+        /**
+         * S型广度优先遍历【S型层次遍历】
+         */
+        testBFSOrder_S();
+    }
+
+    private static void testBFSOrder_S() {
+        BFSOrder order = new BFSOrder();
+
+        Node node1 = new Node("1", null, null);
+        Node node2 = new Node("2", null, null);
+        Node node3 = new Node("3", null, null);
+        Node node4 = new Node("4", null, null);
+        Node node5 = new Node("5", null, null);
+        Node node6 = new Node("6", null, null);
+        Node node7 = new Node("7", null, null);
+        Node node8 = new Node("8", null, null);
+        Node node9 = new Node("9", null, null);
+        Node node10 = new Node("10", null, null);
+
+        node1.left = node2;
+        node1.right = node3;
+
+        node2.left = node4;
+
+        node3.left = node5;
+        node3.right = node6;
+
+        node4.right = node7;
+
+        node5.left = node8;
+        node5.right = node9;
+
+        node6.right = node10;
+
+        println();
+        println();
+        println("S型层次遍历");
+        order.levelTraversal_S(node1);
     }
 
     private static void testBFSOrder() {
