@@ -7,6 +7,7 @@ import com.example.arithmetic.linkedlist.delete.MyListRemove;
 import com.example.arithmetic.linkedlist.insert.MyInsertList;
 import com.example.arithmetic.linkedlist.intersect.MyIntersectLinkedList;
 import com.example.arithmetic.linkedlist.merge.MyList;
+import com.example.arithmetic.linkedlist.palindrome.MyPalindrome;
 import com.example.arithmetic.linkedlist.reverse.MyListReverse;
 import com.example.arithmetic.sum.bean.ListNode;
 
@@ -18,6 +19,11 @@ import com.example.arithmetic.sum.bean.ListNode;
  */
 public class LinkedListAlgorithm {
     public static void main(String[] args) {
+
+        /**
+         * 判断一个链表是否为回文链表
+         */
+        testIsPalindrome();
 
         /**
          * 删除无序单链表中重复的节点
@@ -53,7 +59,7 @@ public class LinkedListAlgorithm {
          * 1 2 3 4 5 6 7 9
          */
         //遍历合并
-        testMerge();
+//        testMerge();
         //递归合并
         //testRecursionMerge();
 
@@ -78,6 +84,30 @@ public class LinkedListAlgorithm {
          * 找到两个单链表相交的起始节点
          */
 //        testLinkedListIntersect();
+    }
+
+    private static void testIsPalindrome() {
+        Node head = new Node(1);
+        Node node1 = new Node(2);
+        Node node2 = new Node(3);
+        Node node3 = new Node(3);
+        Node node4 = new Node(2);
+        Node node5 = new Node(1);
+
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+
+        //方法1
+//        boolean result = MyPalindrome.isPalindrome_One(head);
+        //方法2
+//        boolean result =MyPalindrome.isPalindrome_Two(head);
+        //方法3
+        boolean result =MyPalindrome.isPalindrome_Three(head);
+
+        System.out.println("是否是回文链表:" + result);
     }
 
     private static void testLinkedListIntersect() {
