@@ -1,10 +1,22 @@
 package com.example.arithmetic.string;
 
+import com.example.arithmetic.string.repeatchar.TestStringRepeatChar;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class TestString {
     public static void main(String[] args) {
+        /**
+         * 判断一个字符串中是否有重复字符
+         */
+        String str = "zxmnlkbcdaefga";
+        long beginTime = System.nanoTime();
+        boolean hasRepeat = TestStringRepeatChar.hasRepeatChar_Four(str);
+        long endTime = System.nanoTime();
+        System.out.println("hasRepeat:" + hasRepeat + " spendTime:" + (endTime - beginTime));
+
+
         /**
          * 无重复字符的最长字符串：
          *

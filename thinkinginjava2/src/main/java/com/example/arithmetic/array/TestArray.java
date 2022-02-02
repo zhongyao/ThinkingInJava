@@ -11,6 +11,9 @@ import java.util.Stack;
 public class TestArray {
     public static void main(String[] args) {
 
+        /**
+         * 数组中两个数字相加等于特定值
+         */
         int[] newNums = {2, 15, 6, 4, 7, 11, 19};
         int[] nums = {2, 15, 6, 4, 7, 11, 19};
         int target = 9;
