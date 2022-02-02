@@ -1,5 +1,7 @@
 package com.example.arithmetic.array;
 
+import com.example.arithmetic.array.twosum.TestTwoSum;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,12 +11,23 @@ import java.util.Stack;
 public class TestArray {
     public static void main(String[] args) {
 
+        int[] newNums = {2, 15, 6, 4, 7, 11, 19};
+        int[] nums = {2, 15, 6, 4, 7, 11, 19};
+        int target = 9;
+//        int[] result = TestTwoSum.twoSum_One(nums, target);
+//        int[] result = TestTwoSum.twoSum_Two(nums, target);
+        int[] result = TestTwoSum.twoSum_Three(newNums, nums, target);
+        for (int a : result) {
+            System.out.print(a + " ");
+        }
+
+
         /**
          * 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
          */
-        int[] nums = {2, 2, 3, 1, 3};
-        int res = singleNumber(nums);
-        System.out.println("res:" + res);
+//        int[] nums = {2, 2, 3, 1, 3};
+//        int res = singleNumber(nums);
+//        System.out.println("res:" + res);
 
         /**
          * 在一个长为n字符串中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）.（从0开始计数）
@@ -56,7 +69,7 @@ public class TestArray {
 
     public static int singleNumber(int[] nums) {
         int res = 0;
-        for (int num: nums) {
+        for (int num : nums) {
             res = res ^ num;
         }
         return res;
@@ -90,6 +103,7 @@ public class TestArray {
      * 1、定义一个HashMap key是Char类型，value是boolean类型
      * 2、将每个字符逐个放入HashMap中，如果没存在value就是true，已存在就是false
      * 3、最终在遍历一遍，HashMap中存储的字典中，第一个value值为true的当前index就是答案
+     *
      * @param str
      * @return
      */
