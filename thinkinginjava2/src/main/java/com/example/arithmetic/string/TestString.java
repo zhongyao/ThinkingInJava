@@ -1,5 +1,6 @@
 package com.example.arithmetic.string;
 
+import com.example.arithmetic.string.longsubstr.TestLongestSubStr;
 import com.example.arithmetic.string.repeatchar.TestStringRepeatChar;
 
 import java.util.HashSet;
@@ -7,14 +8,24 @@ import java.util.Set;
 
 public class TestString {
     public static void main(String[] args) {
+
+        /**
+         * 最长不含重复字符的子字符串
+         */
+        String string = "abcabcbb";
+        long beginTime = System.nanoTime();
+        int length = TestLongestSubStr.longestSubStr_Two(string);
+        long endTime = System.nanoTime();
+        System.out.println("length:" + length + " spendTime:" + (endTime - beginTime));
+
         /**
          * 判断一个字符串中是否有重复字符
          */
-        String str = "zxmnlkbcdaefga";
-        long beginTime = System.nanoTime();
-        boolean hasRepeat = TestStringRepeatChar.hasRepeatChar_Four(str);
-        long endTime = System.nanoTime();
-        System.out.println("hasRepeat:" + hasRepeat + " spendTime:" + (endTime - beginTime));
+//        String str = "zxmnlkbcdaefga";
+//        long beginTime = System.nanoTime();
+//        boolean hasRepeat = TestStringRepeatChar.hasRepeatChar_Four(str);
+//        long endTime = System.nanoTime();
+//        System.out.println("hasRepeat:" + hasRepeat + " spendTime:" + (endTime - beginTime));
 
 
         /**
@@ -23,13 +34,13 @@ public class TestString {
          * 给定一个字符串，找出不含有重复字符的最长子串的长度
          */
         //result： fetgra 长度为6
-        String string = "effetgraorogee";
+//        String string = "effetgraorogee";
         //时间复杂度o3
 //        int resultLength = doString(string);
 //        System.out.println("resultLength:" + resultLength);
 
-        int resultLength2 = doString2(string);
-        System.out.println("resultLength2:" + resultLength2);
+//        int resultLength2 = doString2(string);
+//        System.out.println("resultLength2:" + resultLength2);
     }
 
     private static int doString2(String s) {
