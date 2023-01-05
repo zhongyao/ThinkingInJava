@@ -12,6 +12,8 @@ public class ThinkingJava {
         String string = "三千五百四十二万五千三百六十八亿七千九百六十万零五千二百三十八";
         long result = NumberUtil.chineseToNum(string);
         System.out.println("result:" + result);
+
+        //1
     }
     private Node doChange(Node head) {
         Stack<Node> stack = new Stack<>();
