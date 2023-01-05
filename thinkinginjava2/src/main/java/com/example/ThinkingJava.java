@@ -32,6 +32,8 @@ public class ThinkingJava {
             stack.push(slow);
             slow = slow.next;
         }
+        
+        //4
 
         //重组链表
         Node pre = head;
