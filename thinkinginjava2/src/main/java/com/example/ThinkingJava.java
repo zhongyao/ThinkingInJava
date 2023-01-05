@@ -47,4 +47,6 @@ public class ThinkingJava {
         cur.next = null;
         return head;
     }
+
+    //3
 }
