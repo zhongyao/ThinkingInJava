@@ -14,6 +14,7 @@ public class ThinkingJava {
         System.out.println("result:" + result);
 
         //1
+        //2
     }
     private Node doChange(Node head) {
         Stack<Node> stack = new Stack<>();
