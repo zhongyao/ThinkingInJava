@@ -29,11 +29,11 @@ public class Operator {
         /**
          * 关系运算符
          */
-        Integer n1 = new Integer(25);
-        Integer n2 = new Integer(25);
+//        Integer n1 = new Integer(25);
+//        Integer n2 = new Integer(25);
 
         //false:==或!=比较的就是对象的引用
-        System.out.println(n1 == n2);
+//        System.out.println(n1 == n2);
         //true:equals比较的是两个对象的内容是否相同
 
         /**

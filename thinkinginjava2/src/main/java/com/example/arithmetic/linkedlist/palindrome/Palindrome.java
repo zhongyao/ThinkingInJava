@@ -38,16 +38,4 @@ public class Palindrome {
         return true;
     }
 
-    /**
-     * 判断当前链表是否是回文链表
-     *
-     * 【方法2：借助Stack】
-     * @param head
-     * @return
-     */
-    public boolean isPalindrome2(ListNode head) {
-
-
-    }
-
 }

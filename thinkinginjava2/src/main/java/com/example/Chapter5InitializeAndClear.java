@@ -114,7 +114,7 @@ public class Chapter5InitializeAndClear {
         /**
          * 可变参数列表
          */
-        printMyArray(new Object[] {new Integer(39), new Float(34.3), new Double(33.5)});
+//        printMyArray(new Object[] {new Integer(39), new Float(34.3), new Double(33.5)});
         printMyArray(new Object[] {"one", "two", "three"});
         printMyArray(new Object[] {new A(), new A(), new A()});
 
