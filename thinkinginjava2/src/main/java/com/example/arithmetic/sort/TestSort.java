@@ -225,7 +225,7 @@ public class TestSort {
         return array;
     }
 
-    private static int[] testBubbleSort(int[] array) {
+    public static int[] testBubbleSort(int[] array) {
         int temp;
         /**
          * 外层控制循环多少趟
