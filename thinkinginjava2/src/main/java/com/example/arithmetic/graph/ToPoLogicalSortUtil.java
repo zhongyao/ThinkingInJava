@@ -1,4 +1,4 @@
-package com.example.graph;
+package com.example.arithmetic.graph;
 
 import java.util.ArrayList;
 import java.util.Deque;
